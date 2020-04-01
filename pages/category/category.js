@@ -1,23 +1,35 @@
 // pages/category/category.js
+const app=getApp()
+//console.log(app.globalData.userInfo)
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    message:'hello world'
+    message:'hello world',
+    list:[]
   },
   handleBtnClick(){
     console.log('点击了')
+    console.log(app.globalData.userInfo)
     this.setData({
-      message : '哈哈哈哈哈'
+      message : '你好，我是'+app.globalData.userInfo.nickName
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: 'http://localhost:8080/mini/list',
+      success:(res)=>{
+        console.log(res.data.data);
+        this.setData({
+          list:res.data.data
+        })
+      }
+    })
   },
 
   /**

@@ -50,5 +50,17 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onReady(){
+    console.log('onReady')
+  },
+  onShow(){
+    console.log('onShow')
+  },
+  onHide(){
+    console.log('onHide')
+  },
+  onUnload(){
+    console.log('onUnload')
   }
 })

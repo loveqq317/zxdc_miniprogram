@@ -2,3 +2,4 @@
 <!-- <text>pages/category/category.wxml</text> -->
 <view>{{ message }}</view>
 <button bindtap="handleBtnClick" size="mini">按钮</button>
+<view wx:for="{{list}}">{{item.name}}----{{item.age}}</view>
