@@ -8,7 +8,19 @@ Page({
    */
   data: {
     message:'hello world',
-    list:[]
+    list:[],
+    imgPath:''
+  },
+  handleChangeImg(){
+    wx.chooseImage({
+      complete: (res) => {
+        console.log(res);
+        const path=res.tempFilePaths[0]
+          this.setData({
+            imgPath:path
+          })
+      },
+    })
   },
   handleBtnClick(){
     console.log('点击了')
@@ -21,15 +33,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://localhost:8080/mini/list',
-      success:(res)=>{
-        console.log(res.data.data);
-        this.setData({
-          list:res.data.data
-        })
-      }
-    })
+    // wx.request({
+    //   url: 'http://localhost:8080/mini/list',
+    //   success:(res)=>{
+    //     console.log(res.data.data);
+    //     this.setData({
+    //       list:res.data.data
+    //     })
+    //   }
+    // })
   },
 
   /**
