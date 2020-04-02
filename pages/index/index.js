@@ -9,6 +9,14 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  handleIncrementCpn(){
+    const my_sel=this.selectComponent('#sel-id')
+    my_sel.incrementCounter(10)
+    // console.log(my_sel.data)
+    // my_sel.setData({
+    //   counter:my_sel.data.counter+20
+    // })
+  },
   handleTabClick(event){
     console.log(event)
   },
